@@ -14,7 +14,7 @@ meg is written in Go and has no run-time dependencies. If you have Go 1.9
 or later installed and configured you can install meg with `go install`:
 
 ```
-go install github.com/0x1Jar/meg-v1@latest
+go install -v github.com/0x1Jar/meg-v1@latest
 ```
 
 Alternatively, you can clone the repository and build it:
