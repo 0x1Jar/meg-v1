@@ -115,20 +115,7 @@ func processArgs() config {
 	flag.BoolVar(&verbose, "verbose", false, "")
 	flag.BoolVar(&verbose, "v", false, "")
 
-	// hackerone user param
-	hackeroneUser := ""
-	flag.StringVar(&hackeroneUser, "hackerone-user", "", "Set the HackerOne username for X-hackerone header")
-	flag.StringVar(&hackeroneUser, "hu", "", "Set the HackerOne username for X-hackerone header")
-
 	flag.Parse()
-
-	// Add the custom X-hackerone header if hackeroneUser is provided
-	if hackeroneUser != "" {
-		headers = append(headers, fmt.Sprintf("X-hackerone: %s", hackeroneUser))
-	} else {
-		// If no username is provided, still add the header with a placeholder or default
-		headers = append(headers, "X-hackerone: <h1 username>")
-	}
 
 	// paths might be in a file, or it might be a single value
 	paths := flag.Arg(0)
@@ -184,7 +171,6 @@ func init() {
 		h += "  -c, --concurrency <val>    Set the concurrency level (default: 20)\n"
 		h += "  -d, --delay <millis>       Milliseconds between requests to the same host (default: 5000)\n"
 		h += "  -H, --header <header>      Send a custom HTTP header\n"
-		h += "  -hu, --hackerone-user <val> Set the HackerOne username for X-hackerone header\n"
 		h += "  -L, --location             Follow redirects / location header\n"
 		h += "  -r, --rawhttp              Use the rawhttp library for requests (experimental)\n"
 		h += "  -s, --savestatus <status>  Save only responses with specific status code\n"
