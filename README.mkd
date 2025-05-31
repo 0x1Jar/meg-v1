@@ -112,6 +112,7 @@ But it will save an *index* file to `./out/index`:
 head -n 2 ./out/index
 out/example.com/538565d7ab544bc3bec5b2f0296783aaec25e756 http://example.com/package.json (404 Not Found)
 out/example.com/20bc94a296f17ce7a4e2daa2946d0dc12128b3f1 http://example.com/.well-known/security.txt (404 Not Found)
+
 ```
 
 You can use the index file to find where the response is stored, but it's
@@ -121,6 +122,8 @@ often easier to find what you're looking for with `grep`:
 grep -Hnri '< Server:' out/
 out/example.com/61ac5fbb9d3dd054006ae82630b045ba730d8618:14:< Server: ECS (lga/13A2)
 out/example.com/bd8d9f4c470ffa0e6ec8cfa8ba1c51d62289b6dd:16:< Server: ECS (lga/13A3)
+```
+
 ```
 meg --method TRACE
 grep -nri 'TRACE' out/
