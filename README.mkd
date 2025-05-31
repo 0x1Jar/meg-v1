@@ -72,7 +72,6 @@ out/example.com/61ac5fbb9d3dd054006ae82630b045ba730d8618 https://example.com/rob
 out/example.net/1432c16b671043271eab84111242b1fe2a28eb98 http://example.net/robots.txt (404 Not Found)
 out/example.net/61deaa4fa10a6f601adb74519a900f1f0eca38b7 http://example.net/.well-known/security.txt (404 Not Found)
 out/example.com/20bc94a296f17ce7a4e2daa2946d0dc12128b3f1 http://example.com/.well-known/security.txt (404 Not Found)
-...
 ```
 
 And save the output in a directory called `./out`:
@@ -104,7 +103,6 @@ grep -h '^>' out/example.com/*
 > GET /.well-known/security.txt HTTP/1.1
 > Origin: https://evil.com
 > Host: example.com
-...
 ```
 
 But it will save an *index* file to `./out/index`:
@@ -127,7 +125,6 @@ meg --method TRACE
 grep -nri 'TRACE' out/
 out/example.com/61ac5fbb9d3dd054006ae82630b045ba730d8618:3:> TRACE /robots.txt HTTP/1.1
 out/example.com/bd8d9f4c470ffa0e6ec8cfa8ba1c51d62289b6dd:3:> TRACE /.well-known/security.txt HTTP/1.1
-...
 ```
 
 ## Detailed Usage
@@ -206,7 +203,6 @@ grep -h '^>' out/example.com/*
 > GET /.well-known/security.txt HTTP/1.1
 > Origin: https://evil.com
 > Host: example.com
-...
 ```
 
 
@@ -250,5 +246,4 @@ meg --method TRACE
 grep -nri 'TRACE' out/
 out/example.com/61ac5fbb9d3dd054006ae82630b045ba730d8618:3:> TRACE /robots.txt HTTP/1.1
 out/example.com/bd8d9f4c470ffa0e6ec8cfa8ba1c51d62289b6dd:3:> TRACE /.well-known/security.txt HTTP/1.1
-...
 ```
